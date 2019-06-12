@@ -52,9 +52,15 @@ function displayBook(book) {
 }
 
 function likeBook(book) {
-  let userObj = { id: 1, username: "pouros" };
-  book.users.push(userObj);
-  debugger;
+  const userObj = { id: 1, username: "pouros" };
+
+  if (userObj.id === book.users[book.users.length - 1].id) {
+    // book.users = book.users.slice(0, -1);
+    book.users.pop();
+    book.users;
+  } else {
+    book.users.push(userObj);
+  }
 
   let configObj = {
     method: "PATCH",
